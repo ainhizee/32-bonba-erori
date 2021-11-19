@@ -4,7 +4,7 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.AB, function () {
     for (let index = 0; index < 4; index++) {
         bomba.change(LedSpriteProperty.Y, 1)
-        basic.pause(1000)
+        basic.pause(500)
     }
 })
 input.onButtonPressed(Button.B, function () {
@@ -14,12 +14,9 @@ let bomba: game.LedSprite = null
 bomba = game.createSprite(2, 0)
 basic.forever(function () {
     if (bomba.get(LedSpriteProperty.Y) == 4) {
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . . . .
-            `)
+        basic.showIcon(IconNames.Chessboard)
+        basic.showIcon(IconNames.SmallDiamond)
+        bomba.set(LedSpriteProperty.X, 2)
+        bomba.set(LedSpriteProperty.Y, 0)
     }
 })
